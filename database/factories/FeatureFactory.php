@@ -17,7 +17,12 @@ class FeatureFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'image' => $this->faker->imageUrl(640, 480, 'items', true), // URL for a placeholder image
+            'route_name' => $this->faker->slug, // random slug
+            'name' => $this->faker->word, // single word
+            'description' => $this->faker->sentence, // single sentence
+            'required_created' => $this->faker->numberBetween(1, 100), // random integer between 1 and 100
+            'active' => $this->faker->boolean(80), // 80% chance of being true
         ];
     }
 }
