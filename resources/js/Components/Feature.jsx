@@ -31,14 +31,29 @@ export default function Feature({ feature, answer, children }) {
                         feature.required_credits > availableCredits && (
                             <div className="absolute left-0 top-0 right-0 bottom-0 z-10 flex flex-col items-center justify-center bg-white/70 gap-3">
                                 <HiLockClosed className="w-12 h-12 fill-current text-gray-500" />
-                                <div className="text-gray-500 text-sm">
-                                    You need{" "}
-                                    {feature.required_credits -
-                                        availableCredits}{" "}
-                                    more credits to use this feature.
+                                <div>
+                                    You Don't have enough credits for this
+                                    feature. Go
+                                    <Link
+                                        href="/"
+                                        className="text-emerald-600 hover:text-emerald-500 underline"
+                                    >
+                                        Buy more Credits
+                                    </Link>
                                 </div>
                             </div>
                         )}
+                    <div className="p-8 text-gray-800 border-b pb-4">
+                        <p>{feature.description}</p>
+                        <p className="text-sm italic text-right">
+                            Required
+                            <span className="font-semibold">
+                                {feature.required_credits}
+                            </span>
+                            Credits
+                        </p>
+                    </div>
+                    <div className="p-8">{children}</div>
                 </div>
             </div>
         </AuthenticatedLayout>
