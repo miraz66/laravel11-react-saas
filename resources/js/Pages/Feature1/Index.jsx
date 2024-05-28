@@ -5,4 +5,9 @@ import PrimaryButton from "@/Components/PrimaryButton";
 import { useForm } from "@inertiajs/react";
 import Feature from "@/Components/Feature";
 
-export default function Index({ feature, answer }) {}
+export default function Index({ feature, answer }) {
+    const { data, setData, post, processing, errors, reset } = useForm({
+        number1: "",
+        number2: "",
+    });
+}
