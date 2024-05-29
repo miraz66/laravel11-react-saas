@@ -12,6 +12,8 @@ Route::redirect('/', '/dashboard');
 
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/dashboard', [DashboardController::class, "index"])->name('dashboard');
+    Route::get('/feature1', [Feature1Controller::class, "index"])->name('feature1');
+    Route::get('/feature2', [Feature2Controller::class, "index"])->name('feature2');
 });
 
 Route::middleware('auth')->group(function () {
