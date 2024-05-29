@@ -24,29 +24,36 @@ export default function Index({ feature, answer }) {
     return (
         <Feature feature={feature} answer={answer}>
             <form className="p-8 grid grid-cols-2 gap-3" onSubmit={submit}>
-                <InputLabel htmlFor="number1" value="Number 1" />
-                <TextInput
-                    id="number1"
-                    className="mt-1 block w-full"
-                    value={data.number1}
-                    onChange={(e) => setData("number1", e.target.value)}
-                    required
-                    isFocused
-                    autoComplete="number1"
-                />
-                <InputError error={errors.number1} />
+                <div>
+                    <InputLabel htmlFor="number1" value="Number 1" />
+                    <TextInput
+                        id="number1"
+                        className="mt-1 block w-full"
+                        value={data.number1}
+                        onChange={(e) => setData("number1", e.target.value)}
+                        required
+                        isFocused
+                        autoComplete="number1"
+                    />
+                    <InputError error={errors.number1} />
 
-                <InputLabel htmlFor="number2" value="Number 2" />
-                <TextInput
-                    id="number2"
-                    className="mt-1 block w-full"
-                    value={data.number2}
-                    onChange={(e) => setData("number2", e.target.value)}
-                    required
-                    isFocused
-                    autoComplete="number2"
-                />
-                <InputError error={errors.number2} />
+                    <InputLabel htmlFor="number2" value="Number 2" />
+                    <TextInput
+                        id="number2"
+                        className="mt-1 block w-full"
+                        value={data.number2}
+                        onChange={(e) => setData("number2", e.target.value)}
+                        required
+                        isFocused
+                        autoComplete="number2"
+                    />
+                    <InputError error={errors.number2} />
+                </div>
+                <div className="flex items-center justify-end mt-4 col-span-2">
+                    <PrimaryButton type="submit" disabled={processing}>
+                        Calculate
+                    </PrimaryButton>
+                </div>
             </form>
         </Feature>
     );
