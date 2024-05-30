@@ -3,9 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Feature;
-use Illuminate\Http\Request;
-use App\Http\Resources\FeatureResource;
 use App\Models\UsedFeature;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
+use App\Http\Resources\FeatureResource;
 
 class Feature1Controller extends Controller
 {
@@ -13,12 +14,12 @@ class Feature1Controller extends Controller
 
     public function __construct()
     {
-        $this->feature = Feature::where('route_name', 'feature1.index')->where('active', true)->firstOrFail();
+        $this->feature = Feature::where('route_name', 'feature1.index')->where('active', true)->first();
     }
 
     public function index()
     {
-        return inertia('Feature2/Index', [
+        return inertia('Feature1/Index', [
             'feature' => new FeatureResource($this->feature),
             'answer' => session('answer')
         ]);
@@ -28,20 +29,22 @@ class Feature1Controller extends Controller
     {
         $user = $request->user();
 
-        if($user->available_credits < $this->feature->required_credits) {
+        if ($user->available_credits < $this->feature->required_credits) {
             return back();
         }
-        $data = $request-> validate([
+        
+        $data = $request->validate([
             'number1' => ['required', 'numeric'],
             'number2' => ['required', 'numeric'],
         ]);
+
         $number1 = (float) $data['number1'];
         $number2 = (float) $data['number2'];
 
         $user->decreaseCredits($this->feature->required_credits);
 
         UsedFeature::create([
-            'feature1' => $this->feature->id,
+            'feature_id' => $this->feature->id,
             'user_id' => $user->id,
             'credits' => $this->feature->required_credits,
             'data' => $data

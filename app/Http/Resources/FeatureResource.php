@@ -19,7 +19,7 @@ class FeatureResource extends JsonResource
         return [
             'id' => $this->id,
             'route_name' => $this->route_name,
-            'image' => $this->image,
+            'image' => $this->image ?: null,
             'name' => $this->name,
             'description' => $this->description,
             'active' => $this->active,

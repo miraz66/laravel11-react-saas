@@ -8,12 +8,23 @@ use App\Http\Controllers\Feature1Controller;
 use App\Http\Controllers\Feature2Controller;
 use App\Http\Controllers\DashboardController;
 
-Route::redirect('/', '/dashboard');
+Route::get('/', function () {
+    return Inertia::render('Welcome', [
+        'canLogin' => Route::has('login'),
+        'canRegister' => Route::has('register'),
+        'laravelVersion' => Application::VERSION,
+        'phpVersion' => PHP_VERSION,
+    ]);
+});
+
+Route::get('/dashboard', function() {
+    return Inertia::render('Dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware(['auth', 'verified'])->group(function () {
-    Route::get('/dashboard', [DashboardController::class, "index"])->name('dashboard');
-    Route::get('/feature1', [Feature1Controller::class, "index"])->name('feature1');
-    Route::get('/feature2', [Feature2Controller::class, "index"])->name('feature2');
+    Route::get('/feature1', [Feature1Controller::class, "index"])->name('feature1.index');
+    Route::get('/feature1/calculate', [Feature1Controller::class, "calculate"])->name('feature1.calculate');
+    Route::get('/feature2', [Feature2Controller::class, "index"])->name('feature2.index');
 });
 
 Route::middleware('auth')->group(function () {

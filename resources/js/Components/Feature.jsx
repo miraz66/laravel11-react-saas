@@ -8,7 +8,7 @@ export default function Feature({ feature, answer, children }) {
 
     return (
         <AuthenticatedLayout
-            user={page.props.auth.user}
+            user={auth.user}
             header={
                 <h2 className="font-semibold text-xl text-gray-800 leading-tight">
                     {feature.name}
