@@ -28,7 +28,7 @@ class DatabaseSeeder extends Seeder
             'image' => 'http://static-00.iconduck.com/assets.00/plus-icon-2048x2048-z6v59bd6.png',
             'name' => 'Calculate Sum',
             'description' => 'Calculate sum of two numbers',
-            'required_credits' => 2,
+            'required_credits' => 1,
             'active' => true,
         ]);
 
@@ -37,7 +37,7 @@ class DatabaseSeeder extends Seeder
             'image' => 'http://cdn-icons-png.freepik.com/512/929/929430.png',
             'name' => 'Calculate difference',
             'description' => 'Calculate sum of two numbers',
-            'required_credits' => 3,
+            'required_credits' => 1,
             'active' => true,
         ]);
 

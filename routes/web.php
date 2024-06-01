@@ -1,17 +1,18 @@
 <?php
 
 // use App\Http\Controllers\CreditController;
-use App\Http\Controllers\DashboardController;
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CreditController;
+use App\Http\Controllers\ProfileController;
+// use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Feature1Controller;
 use App\Http\Controllers\Feature2Controller;
-// use App\Http\Controllers\HomeController;
-use App\Http\Controllers\ProfileController;
-use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\DashboardController;
 
 // Route::get('/', [HomeController::class, 'index'])->name('home');
 
-// Route::post('/buy-credits/webhook', [CreditController::class, 'webhook'])
-    // ->name('credit.webhook');
+Route::post('/buy-credits/webhook', [CreditController::class, 'webhook'])
+    ->name('credit.webhook');
 
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/', [DashboardController::class, 'index'])
@@ -27,15 +28,15 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::post('feature2', [Feature2Controller::class, 'calculate'])
         ->name('feature2.calculate');
 
-    // Route::get('/buy-credits', [CreditController::class, 'index'])
-    //     ->name('credit.index');
-    // Route::get('/buy-credits/success', [CreditController::class, 'success'])
-    //     ->name('credit.success');
-    // Route::get('/buy-credits/cancel', [CreditController::class, 'cancel'])
-    //     ->name('credit.cancel');
+    Route::get('/buy-credits', [CreditController::class, 'index'])
+        ->name('credit.index');
+    Route::get('/buy-credits/success', [CreditController::class, 'success'])
+        ->name('credit.success');
+    Route::get('/buy-credits/cancel', [CreditController::class, 'cancel'])
+        ->name('credit.cancel');
 
-    // Route::post('/buy-credits/{package}', [CreditController::class, 'buyCredits'])
-    //     ->name('credit.buy');
+    Route::post('/buy-credits/{package}', [CreditController::class, 'buyCredits'])
+        ->name('credit.buy');
 });
 
 

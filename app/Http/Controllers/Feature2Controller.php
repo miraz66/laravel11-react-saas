@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\FeatureResource;
 use App\Models\Feature;
 use App\Models\UsedFeature;
 use Illuminate\Http\Request;
-use App\Http\Resources\FeatureResource;
 
 class Feature2Controller extends Controller
 {
@@ -19,7 +19,7 @@ class Feature2Controller extends Controller
 
     public function index()
     {
-        return inertia('Feature1/Index', [
+        return inertia('Feature2/Index', [
             'feature' => new FeatureResource($this->feature),
             'answer' => session('answer')
         ]);
@@ -49,7 +49,6 @@ class Feature2Controller extends Controller
             'credits' => $this->feature->required_credits,
             'data' => $data,
         ]);
-
 
         return to_route('feature2.index')
             ->with('answer', $result);
