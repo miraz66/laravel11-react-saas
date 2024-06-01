@@ -6,7 +6,6 @@ use App\Models\Feature;
 use App\Models\Package;
 use Stripe\StripeClient;
 use App\Models\Transaction;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Resources\FeatureResource;
 use App\Http\Resources\PackageResource;

@@ -14,12 +14,14 @@ class UsedFeatureResource extends JsonResource
      */
     public function toArray(Request $request): array
     {
+        $dhakaTimeZone = 'Asia/Dhaka';
+
         return [
             'id' => $this->id,
             'credits' => $this->credits,
             'feature' => new FeatureResource($this->feature),
-            'created_at' => $this->created_at->format('yyyy-MM-dd HH:mm:ss'),
-            'updated_at' => $this->updated_at->format('yyyy-MM-dd HH:mm:ss'),
+            'created_at' => $this->created_at->setTimezone($dhakaTimeZone)->format('d-m-Y , h:i:s A'),
+            'updated_at' => $this->updated_at->setTimezone($dhakaTimeZone)->format('d-m-y , h:i:s A'),
             'data' => $this->data
         ];
     }

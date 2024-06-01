@@ -40,6 +40,7 @@ class Feature3Controller extends Controller
         );
 
         $result = $number1 * $number2;
+        
         UsedFeature::create([
             'feature_id' => $this->feature->id,
             'user_id' => $user->id,
