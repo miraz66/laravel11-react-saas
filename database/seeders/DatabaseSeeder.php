@@ -28,16 +28,16 @@ class DatabaseSeeder extends Seeder
             'image' => 'http://static-00.iconduck.com/assets.00/plus-icon-2048x2048-z6v59bd6.png',
             'name' => 'Calculate Sum',
             'description' => 'Calculate sum of two numbers',
-            'required_created' => 2,
+            'required_credits' => 2,
             'active' => true,
         ]);
 
         Feature::create([
             'route_name' => 'feature2.index',
             'image' => 'http://cdn-icons-png.freepik.com/512/929/929430.png',
-            'name' => 'Calculate destroy',
+            'name' => 'Calculate difference',
             'description' => 'Calculate sum of two numbers',
-            'required_created' => 3,
+            'required_credits' => 3,
             'active' => true,
         ]);
 

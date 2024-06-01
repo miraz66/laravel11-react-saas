@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('route_name');
             $table->string('name');
             $table->string('description');
-            $table->integer('required_created');
+            $table->integer('required_credits');
             $table->boolean('active')->default(true);
             $table->timestamps();
         });
