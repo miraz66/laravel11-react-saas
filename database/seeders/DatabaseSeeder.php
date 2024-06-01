@@ -3,11 +3,8 @@
 namespace Database\Seeders;
 
 use App\Models\User;
-// use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use App\Models\Feature;
 use App\Models\Package;
-use App\Models\Transaction;
-use App\Models\UsedFeature;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -38,6 +35,24 @@ class DatabaseSeeder extends Seeder
             'name' => 'Calculate difference',
             'description' => 'Calculate sum of two numbers',
             'required_credits' => 1,
+            'active' => true,
+        ]);
+
+        Feature::create([
+            'route_name' => 'feature3.index',
+            'image' => 'https://i.postimg.cc/V67PKYFN/icons8-cancel-750.png',
+            'name' => 'Calculate Multiplication',
+            'description' => 'Calculate sum of two numbers',
+            'required_credits' => 2,
+            'active' => true,
+        ]);
+        
+        Feature::create([
+            'route_name' => 'feature4.index',
+            'image' => 'https://i.postimg.cc/1XPVrrJS/division.png',
+            'name' => 'Calculate Division',
+            'description' => 'Calculate sum of two numbers',
+            'required_credits' => 2,
             'active' => true,
         ]);
 
