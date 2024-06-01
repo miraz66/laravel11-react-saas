@@ -16,12 +16,14 @@ class FeatureFactory extends Factory
      */
     public function definition(): array
     {
+        static $routeNumber = 1; // Static variable to keep track of the number
+        
         return [
             'image' => $this->faker->imageUrl(640, 480, 'items', true), // URL for a placeholder image
-            'route_name' => $this->faker->slug, // random slug
-            'name' => $this->faker->word, // single word
-            'description' => $this->faker->sentence, // single sentence
-            'required_created' => $this->faker->numberBetween(1, 100), // random integer between 1 and 100
+            'route_name' => 'feature' . $routeNumber++ . '.index', // Custom route name
+            'name' => $this->faker->word, // Single word
+            'description' => $this->faker->sentence, // Single sentence
+            'required_created' => $this->faker->numberBetween(1, 100), // Random integer between 1 and 100
             'active' => $this->faker->boolean(80), // 80% chance of being true
         ];
     }

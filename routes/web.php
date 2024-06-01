@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
     // ->name('credit.webhook');
 
 Route::middleware(['auth', 'verified'])->group(function () {
-    Route::get('/dashboard', [DashboardController::class, 'index'])
+    Route::get('/', [DashboardController::class, 'index'])
         ->name('dashboard');
 
     Route::get('feature1', [Feature1Controller::class, 'index'])
