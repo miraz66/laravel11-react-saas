@@ -25,14 +25,7 @@ export default function Index({ feature, answer }) {
             <form onSubmit={submit} className="p-8 grid grid-cols-2 gap-3">
                 <div>
                     <InputLabel htmlFor="number1" value="Number 1" />
-                    <TextInput
-                        id="number1"
-                        type="text"
-                        name="number1"
-                        value={data.number1}
-                        className="mt-1 block w-full"
-                        onChange={(e) => setData("number1", e.target.value)}
-                    />
+
                     <InputError message={errors.number1} className="mt-2" />
                 </div>
                 <div>
